@@ -3,9 +3,6 @@ package typetesto;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
@@ -57,6 +54,7 @@ public class Game extends Canvas implements Runnable{
     }
     
     public void run(){
+
     	this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
@@ -104,7 +102,7 @@ public class Game extends Canvas implements Runnable{
         }
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.black);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect((int)0, (int)0, WIDTH, HEIGHT);
         
         
         handler.render(g);
@@ -115,7 +113,7 @@ public class Game extends Canvas implements Runnable{
         bs.show();
     }
     
-    public static  int clamp(int var, int min, int max) {
+    public static  float clamp(float var, float min, float max) {
 		if (var >= max) {
 			return var = max;
 		}else if (var <= min) {

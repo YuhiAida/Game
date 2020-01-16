@@ -2,6 +2,5 @@ package typetesto;
 
 
 public enum ID {
-    Player(), BasicEnemy(), Trail(), FastEnemy();
-
+    Player(), BasicEnemy(), Trail(), FastEnemy(), SmartEnemy();
 }

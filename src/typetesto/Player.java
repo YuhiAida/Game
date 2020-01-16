@@ -1,12 +1,9 @@
 package typetesto;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Color;
 import java.util.Random;
-
-import com.sun.webkit.graphics.GraphicsDecoder;
 
 public class Player extends GameObject{
 
@@ -20,7 +17,7 @@ public class Player extends GameObject{
     }
     
     public Rectangle getBounds(){
-    	return new Rectangle(x, y, 32, 32);
+    	return new Rectangle((int)x, (int)y, 32, 32);
     }
     
     
@@ -28,10 +25,10 @@ public class Player extends GameObject{
         x += velX;
         y += velY;
         
-        x = Game.clamp(x, 1, Game.WIDTH -40);
-        y = Game.clamp(y, 1, Game.HEIGHT -61);
+        x = Game.clamp(x, 0, Game.WIDTH -40);
+        y = Game.clamp(y, 0, Game.HEIGHT -61);
         
-		handler.addObject(new Trail(x, y, ID.Trail, Color.gray, 32, 32, 0.10f, handler));
+		handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.gray, 32, 32, 0.10f, handler));
 
         collision();
 
@@ -41,7 +38,7 @@ public class Player extends GameObject{
     	for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
 			
-			if (tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy) {
+			if (tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy) {
 				if (getBounds().intersects(tempObject.getBounds())) {
 					//Collision code
 					HUD.HEALTH -=2;
@@ -53,7 +50,7 @@ public class Player extends GameObject{
     public void render(Graphics g){
     	
 		g.setColor(Color.white);
-        g.fillRect(x, y, 32, 32);
+        g.fillRect((int)x, (int)y, 32, 32);
     }
     
     

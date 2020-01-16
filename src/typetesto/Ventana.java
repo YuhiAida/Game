@@ -6,7 +6,12 @@ import javax.swing.JFrame;
 
 public class Ventana extends Canvas{
     
-    public Ventana(int width, int height, String title, Game game){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Ventana(int width, int height, String title, Game game){
         
         JFrame frame = new JFrame(title);
         

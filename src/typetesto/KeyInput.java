@@ -18,7 +18,7 @@ public class KeyInput extends KeyAdapter {
         keyDown[3] = false;
     }
 
-
+ 
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         int vel = 5;
